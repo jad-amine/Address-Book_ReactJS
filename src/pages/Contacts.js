@@ -21,7 +21,7 @@ const Contacts = () => {
   }, []);
   return (
     <div>
-      {data && <ContactsTable data={data}/>}
+      {data && <ContactsTable data={data} setData={setData}/>}
     </div>
   );
 };

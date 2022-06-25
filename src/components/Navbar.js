@@ -11,7 +11,7 @@ const Navbar = () => {
       <ul>
         <li>
           <FaListUl />
-          <NavLink to="/contacts">Contacts</NavLink>
+          <NavLink to="/">Contacts</NavLink>
         </li>
         <li>
           <FaUserPlus />

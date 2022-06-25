@@ -42,7 +42,7 @@
 .navbar a {
   text-decoration: none;
   color: white;
-  font-size: 30px;
+  font-size: 27px;
   padding: 3px;
 }
 
@@ -61,7 +61,7 @@ table {
   font-size: 20px;
 }
 
-tr{
+tr {
   height: 40px;
 }
 
@@ -69,9 +69,33 @@ tr:nth-child(even) {
   background-color: #dddddd;
 }
 
-#first{
+#first {
   height: 50px;
   background-color: rgb(47, 106, 255);
   color: white;
   font-size: 30px;
+}
+
+td,
+th {
+  border: 1px solid #dddddd;
+  padding: 8px;
+  text-align: left;
+}
+
+td {
+  color: #4b4b4b;
+}
+
+table span {
+  font-size: 20px;
+  margin-left: 40px;
+}
+
+svg{
+  cursor: pointer;
+}
+
+svg:hover{
+  color: #898989;
 }
