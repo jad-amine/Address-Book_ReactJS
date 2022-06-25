@@ -8,6 +8,7 @@ const SearchInput = ({ th, index, data, setFilteredData }) => {
     setSearch(e.target.value);
     let target_value = e.target.value.toLowerCase();
     let target_name = e.target.name.toLowerCase();
+    console.log(target_name, target_value)
 
     target_name === "name"
       ? setFilteredData(
@@ -30,6 +31,14 @@ const SearchInput = ({ th, index, data, setFilteredData }) => {
             return number.search(target_value) !== -1;
           })
         )
+      : target_name === "relation"
+      ? setFilteredData(
+          filteredData.filter((contact) => {
+            let relation = contact.relationship_status.toLowerCase();
+            console.log(relation);
+            return relation.search(target_value) !== -1;
+          })
+        )
       : console.log("null");
   };
 
@@ -38,9 +47,11 @@ const SearchInput = ({ th, index, data, setFilteredData }) => {
       {th !== "Relation Ship" ? (
         <input name={th} type={"text"} value={search} onChange={handleSearch} />
       ) : (
-        <select name="relation" onChange={handleSearch}>
-          <option value="married">Married</option>
-          <option value="single">Single</option>
+        <select id="relation" name="relation" value={search} onChange={handleSearch}>
+          <option value="">All</option>
+          <option value="Married">Married</option>
+          <option value="Single">Single</option>
+          <option value="Engaged">Engaged</option>
         </select>
       )}
     </>

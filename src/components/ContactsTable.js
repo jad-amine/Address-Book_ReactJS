@@ -41,12 +41,14 @@ const ContactsTable = ({ data, setData }) => {
                 data={data}
                 setFilteredData={setFilteredData}
               />
-              <FaWindowClose
-                onClick={() => {
-                  setTableHeader(Array(5).fill(false));
-                  setFilteredData([...data]);
-                }}
-              />
+              <button>
+                <FaWindowClose
+                  onClick={() => {
+                    setTableHeader(Array(5).fill(false));
+                    setFilteredData([...data]);
+                  }}
+                />
+              </button>
             </div>
           );
         })}

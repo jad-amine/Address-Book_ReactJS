@@ -87,9 +87,22 @@ td {
   color: #4b4b4b;
 }
 
-table span {
+table button {
+  margin-left: 50px;
+  color: white;
   font-size: 20px;
-  margin-left: 40px;
+  border: 0;
+  background-color:rgba(136, 152, 192, 0);
+}
+
+table input{
+  padding-left: 10px;
+}
+
+#relation{
+  width: 100px;
+  height: 30px;
+  font-size: 17px;
 }
 
 svg {

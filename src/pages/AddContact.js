@@ -23,12 +23,6 @@ const AddContact = () => {
         },
         data: JSON.stringify(contact),
       });
-      setContact({
-        name: "",
-        email: "",
-        number: "",
-        relationship_status: "Single",
-      });
       navigate("/");
     } catch (err) {
       console.log(err);
@@ -46,7 +40,7 @@ const AddContact = () => {
       : target === "number"
       ? setContact({ ...contact, number: value })
       : target === "relationship_status"
-      ? setContact({ ...contact, relationship: value })
+      ? setContact({ ...contact, relationship_status: value })
       : console.log(contact);
   };
   return (
@@ -80,8 +74,9 @@ const AddContact = () => {
           value={contact.relationship}
           onChange={handleChange}
         >
-          <option value="single">Single</option>
-          <option value="married">Married</option>
+          <option value="Single">Single</option>
+          <option value="Married">Married</option>
+          <option value="Engaged">Engaged</option>
         </select>
         <input id="last-input" type="submit" value={"Add Contact"} />
       </form>
