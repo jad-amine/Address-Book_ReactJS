@@ -50,19 +50,13 @@ const ContactsTable = ({ data, setData }) => {
             </div>
           );
         })}
-        {/* <th>Name <span><FaSearch onClick={(e)=>console.log(e.target)}/></span></th>
-        <th>Email <span><FaSearch /></span></th>
-        <th>Number <span><FaSearch /></span></th>
-        <th>Relationship Status <span><FaSearch /></span></th>
-        <th>Location <span><FaSearch /></span></th>
-        <th><input type="text" placeholder={"Name" } onFocus={()=>console.log('hi')}/><span><FaWindowClose /></span></th> */}
       </tr>
       {filteredData.map((contact) => (
         <tr key={contact._id}>
           <td>{contact.name}</td>
           <td>{contact.email}</td>
           <td>{contact.number}</td>
-          <td>{contact.number}</td>
+          <td>{contact.relationship_status}</td>
           <td>{contact.number}</td>
         </tr>
       ))}
