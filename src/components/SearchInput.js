@@ -23,18 +23,26 @@ const SearchInput = ({ th, index, data, setFilteredData }) => {
             return email.search(target_value) !== -1;
           })
         )
-      : target_name === "number" ?
-      setFilteredData(
-        filteredData.filter((contact) => {
-          let number = String(contact.number);
-          return number.search(target_value) !== -1;
-        })
-      ) :console.log('null');
+      : target_name === "number"
+      ? setFilteredData(
+          filteredData.filter((contact) => {
+            let number = String(contact.number);
+            return number.search(target_value) !== -1;
+          })
+        )
+      : console.log("null");
   };
 
   return (
     <>
-      <input name={th} type={"text"} value={search} onChange={handleSearch} />
+      {th !== "Relation Ship" ? (
+        <input name={th} type={"text"} value={search} onChange={handleSearch} />
+      ) : (
+        <select name="relation" onChange={handleSearch}>
+          <option value="married">Married</option>
+          <option value="single">Single</option>
+        </select>
+      )}
     </>
   );
 };

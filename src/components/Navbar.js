@@ -15,7 +15,7 @@ const Navbar = () => {
         </li>
         <li>
           <FaUserPlus />
-          <NavLink to="/addContacts">Add Contact</NavLink>
+          <NavLink to="/addContact">Add Contact</NavLink>
         </li>
       </ul>
       <h1>Maps</h1>
