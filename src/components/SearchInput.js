@@ -6,16 +6,30 @@ const SearchInput = ({ th, index, data, setFilteredData }) => {
 
   const handleSearch = (e) => {
     setSearch(e.target.value);
-    let target_value = e.target.value;
+    let target_value = e.target.value.toLowerCase();
     let target_name = e.target.name.toLowerCase();
-    
+
     target_name === "name"
       ? setFilteredData(
           filteredData.filter((contact) => {
-            return (contact.name.search(target_value) !== -1);
+            let name = contact.name.toLowerCase();
+            return name.search(target_value) !== -1;
           })
         )
-      : console.log("null");
+      : target_name === "email"
+      ? setFilteredData(
+          filteredData.filter((contact) => {
+            let email = contact.email.toLowerCase();
+            return email.search(target_value) !== -1;
+          })
+        )
+      : target_name === "number" ?
+      setFilteredData(
+        filteredData.filter((contact) => {
+          let number = String(contact.number);
+          return number.search(target_value) !== -1;
+        })
+      ) :console.log('null');
   };
 
   return (
