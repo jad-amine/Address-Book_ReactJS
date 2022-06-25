@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { FaWindowClose, FaSearch } from "react-icons/fa";
+import SearchInput from "./SearchInput";
 
 const ContactsTable = ({ data, setData }) => {
   const [filteredData, setFilteredData] = useState([...data]);
@@ -10,18 +11,15 @@ const ContactsTable = ({ data, setData }) => {
     false,
     false,
   ]);
-  const [search, setSearch] = useState("");
+
   const list = ["Name", "Email", "Number", "Relation Ship", "Location"];
 
   const toggleSearch = (e) => {
-    let newTableHeader = [false, false, false, false, false];
+    let newTableHeader = Array(5).fill(false);
+    setFilteredData([...data]);
     const index = list.indexOf(e.currentTarget.name);
     newTableHeader[index] = !newTableHeader[index];
     setTableHeader(newTableHeader);
-  };
-
-  const handleSearch = (e) => {
-    setSearch(e.target.value);
   };
 
   return (
@@ -36,15 +34,20 @@ const ContactsTable = ({ data, setData }) => {
               </button>
             </th>
           ) : (
-            <>
-              <input type={"text"} value={search} onChange={handleSearch} />
+            <div className="search-input">
+              <SearchInput
+                th={th}
+                index={index}
+                data={data}
+                setFilteredData={setFilteredData}
+              />
               <FaWindowClose
                 onClick={() => {
-                  setSearch("");
                   setTableHeader(Array(5).fill(false));
+                  setFilteredData([...data]);
                 }}
               />
-            </>
+            </div>
           );
         })}
         {/* <th>Name <span><FaSearch onClick={(e)=>console.log(e.target)}/></span></th>
