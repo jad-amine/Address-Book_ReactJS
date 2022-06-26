@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { FaWindowClose, FaSearch } from "react-icons/fa";
 import SearchInput from "./SearchInput";
 
-const ContactsTable = ({ data, setData }) => {
+const ContactsTable = ({ data }) => {
   const [filteredData, setFilteredData] = useState([...data]);
   const [tableHeader, setTableHeader] = useState([
     false,
@@ -11,7 +11,7 @@ const ContactsTable = ({ data, setData }) => {
     false,
     false,
   ]);
-
+console.log(data)
   const list = ["Name", "Email", "Number", "Relation Ship", "Location"];
 
   const toggleSearch = (e) => {

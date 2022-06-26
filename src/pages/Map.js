@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import {
   MapContainer,
   TileLayer,
@@ -7,15 +7,24 @@ import {
   useMapEvents,
 } from "react-leaflet";
 import "../App.css";
-import { Icon } from "leaflet";
+import { useLocation } from "react-router-dom";
+import { ContactsContext } from "../contexts/ContactsContext";
 
-function Map() {
+function Map({ contact, setContact }) {
   const [location, setLocation] = useState("");
-
+  const { data, setData } = useContext(ContactsContext);
+  let currentPath = useLocation();
+  const adding_contact = currentPath.pathname === "/addContact";
   const LocationFinderDummy = () => {
     const map = useMapEvents({
       click(e) {
-        setLocation(e.latlng);
+        if (adding_contact) {
+          setLocation(e.latlng);
+          setContact({
+            ...contact,
+            location: { coordinates: [e.latlng.lat, e.latlng.lng] },
+          });
+        }
       },
     });
     return null;
@@ -31,11 +40,16 @@ function Map() {
         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
       />
       <LocationFinderDummy />
-      {location && <Marker position={location}>
-        <Popup>
-          Contact Location.
-        </Popup>
-      </Marker>}
+      {location && (
+        <Marker position={location}>
+          <Popup>Contact Location.</Popup>
+        </Marker>
+      )}
+      {!adding_contact && data && data.map((contact)=>(
+        <Marker key={contact.name} position={contact.location.coordinates}>
+          <Popup>{contact.name} <br /> {contact.email} <br/> {contact.number}</Popup>
+        </Marker>
+      ))}
     </MapContainer>
   );
 }

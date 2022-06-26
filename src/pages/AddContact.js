@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import Map from "./Map";
 
 const AddContact = () => {
   const [contact, setContact] = useState({
@@ -8,25 +9,31 @@ const AddContact = () => {
     email: "",
     number: "",
     relationship_status: "Single",
+    location: null,
   });
+  const [hiddenMap, setHiddenMap] = useState(false);
 
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    try {
-      const res = await axios("http://localhost:8000/contacts", {
-        method: "POST",
-        headers: {
-          "Content-type": "application/json",
-          Authorization: "bearer token",
-        },
-        data: JSON.stringify(contact),
-      });
-      navigate("/");
-    } catch (err) {
-      console.log(err);
-      alert("Contact already exists");
+    if (contact.location) {
+      try {
+        const res = await axios("http://localhost:8000/contacts", {
+          method: "POST",
+          headers: {
+            "Content-type": "application/json",
+            Authorization: "bearer token",
+          },
+          data: JSON.stringify(contact),
+        });
+        navigate("/");
+      } catch (err) {
+        console.log(err);
+        alert("Contact already exists");
+      }
+    } else {
+      alert("Please enter contact location !!")
     }
   };
 
@@ -53,6 +60,7 @@ const AddContact = () => {
           type="text"
           value={contact.name}
           onChange={handleChange}
+          required
         />
         <label>Email:</label>
         <input
@@ -60,6 +68,7 @@ const AddContact = () => {
           type="email"
           value={contact.email}
           onChange={handleChange}
+          required
         />
         <label>Number:</label>
         <input
@@ -67,19 +76,31 @@ const AddContact = () => {
           type="number"
           value={contact.number}
           onChange={handleChange}
+          required
         />
         <label>Relationhsip Status:</label>
         <select
           name="relationship_status"
           value={contact.relationship}
           onChange={handleChange}
+          required
         >
           <option value="Single">Single</option>
           <option value="Married">Married</option>
           <option value="Engaged">Engaged</option>
         </select>
+        <input
+          type="button"
+          value={"Add Location"}
+          onClick={() => {
+            console.log(contact)
+            setHiddenMap(true);
+          }}
+          required
+        />
         <input id="last-input" type="submit" value={"Add Contact"} />
       </form>
+      {hiddenMap && <Map contact={contact} setContact={setContact} />}
     </div>
   );
 };

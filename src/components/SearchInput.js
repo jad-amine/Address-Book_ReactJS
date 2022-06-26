@@ -8,7 +8,6 @@ const SearchInput = ({ th, index, data, setFilteredData }) => {
     setSearch(e.target.value);
     let target_value = e.target.value.toLowerCase();
     let target_name = e.target.name.toLowerCase();
-    console.log(target_name, target_value)
 
     target_name === "name"
       ? setFilteredData(

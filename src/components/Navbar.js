@@ -1,6 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import { FaUserPlus, FaListUl } from "react-icons/fa";
+import { FaUserPlus, FaListUl, FaMapMarkerAlt } from "react-icons/fa";
 
 const logo = require("../assets/download.png");
 
@@ -10,15 +10,13 @@ const Navbar = () => {
       <img src={logo} alt="" />
       <ul>
         <li>
-          <FaListUl />
-          <NavLink to="/">Contacts</NavLink>
+          <NavLink to="/"><FaListUl />Contacts</NavLink>
         </li>
         <li>
-          <FaUserPlus />
-          <NavLink to="/addContact">Add Contact</NavLink>
+          <NavLink to="/addContact"><FaUserPlus />Add Contact</NavLink>
         </li>
       </ul>
-      <NavLink to="/map">Maps</NavLink>
+      <NavLink id="map" to="/map"><FaMapMarkerAlt />Maps</NavLink>
     </div>
   );
 };
