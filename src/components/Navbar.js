@@ -15,6 +15,9 @@ const Navbar = () => {
         <li>
           <NavLink to="/addContact"><FaUserPlus />Add Contact</NavLink>
         </li>
+        <li>
+          <NavLink to="/login">Login</NavLink>
+        </li>
       </ul>
       <NavLink id="map" to="/map"><FaMapMarkerAlt />Maps</NavLink>
     </div>

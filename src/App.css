@@ -172,6 +172,53 @@ svg:hover {
   width: 100px;
 }
 
+/* Login */
+.login{
+  margin: 70px auto;
+  width: 400px;
+  padding: 20px;
+  border-radius: 20px;
+  background-color: #cecece;
+  
+}
+
+.login h1{
+  text-align: center;
+  color: rgb(47, 106, 255);
+}
+
+.login form{
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 300px;
+  margin: 50px auto;
+  font-size: 25px;
+}
+
+.login input{
+  width: 250px;
+  height: 30px;
+  padding-left: 10px;
+  font-size: 18px;
+}
+
+.login input:last-of-type{
+  background-color: rgb(47, 106, 255);
+  margin: auto;
+  border: 0;
+  border-radius: 10px;
+  color: white;
+  width: 200px;
+  margin-top: 20px;
+  height: 40px;
+}
+
+.login input:last-of-type:hover{
+  background-color: rgb(18, 76, 222);
+  cursor: pointer;
+}
+
 /* Map */
 
 .leaflet-container {

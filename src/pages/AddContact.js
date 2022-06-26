@@ -56,7 +56,7 @@ const AddContact = () => {
   return (
     <div className="add-contact">
       <h1>Add Contact</h1>
-      <form onSubmit={handleSubmit}>
+      <form className="login" onSubmit={handleSubmit}>
         <label>Name:</label>
         <input
           name="name"

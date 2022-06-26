@@ -10,6 +10,7 @@ import Contacts from "./pages/Contacts";
 import AddContact from "./pages/AddContact";
 import Map from "./pages/Map";
 import "./App.css";
+import Login from "./components/Login";
 
 
 function App() {
@@ -35,6 +36,7 @@ function App() {
       <ContactsContext.Provider value={{ data, setData }}>
         <Routes>
           <Route path="/" element={<Contacts />}></Route>
+          <Route path="/login" element={<Login />}></Route>
           <Route path="/addContact" element={<AddContact />}></Route>
           <Route path="/map" element={<Map />}></Route>
         </Routes>
