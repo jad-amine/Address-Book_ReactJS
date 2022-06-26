@@ -9,6 +9,7 @@
 
 /* Navbar */
 .navbar {
+  min-width: 800px;
   height: 80px;
   display: flex;
   justify-content: space-between;

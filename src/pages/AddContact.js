@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Map from "./Map";
+import { ContactsContext } from "../contexts/ContactsContext";
 
 const AddContact = () => {
+  const { data, setData } = useContext(ContactsContext);
   const [contact, setContact] = useState({
     name: "",
     email: "",
@@ -27,13 +29,14 @@ const AddContact = () => {
           },
           data: JSON.stringify(contact),
         });
+        setData([...data, res.data.result])
         navigate("/");
       } catch (err) {
         console.log(err);
         alert("Contact already exists");
       }
     } else {
-      alert("Please enter contact location !!")
+      alert("Please enter contact location !!");
     }
   };
 
@@ -93,7 +96,7 @@ const AddContact = () => {
           type="button"
           value={"Add Location"}
           onClick={() => {
-            console.log(contact)
+            console.log(contact);
             setHiddenMap(true);
           }}
           required
