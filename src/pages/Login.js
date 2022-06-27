@@ -14,11 +14,15 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const res = await axios("http://localhost:8000/api/user", {
+    console.log(user);
+    const res = await axios("http://localhost:8000/user/login", {
       method: "POST",
-      body: user,
+      headers: {
+        "Content-type": "application/json",
+      },
+      data: JSON.stringify(user),
     });
-    console.log(res);
+    console.log(res.data);
   };
 
   return (

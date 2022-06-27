@@ -10,7 +10,7 @@ import Contacts from "./pages/Contacts";
 import AddContact from "./pages/AddContact";
 import Map from "./pages/Map";
 import "./App.css";
-import Login from "./components/Login";
+import Login from "./pages/Login";
 
 
 function App() {
