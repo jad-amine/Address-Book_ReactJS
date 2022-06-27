@@ -12,13 +12,19 @@ import Map from "./pages/Map";
 import "./App.css";
 import Login from "./pages/Login";
 
-
 function App() {
   const [data, setData] = useState("");
+  const [admin, setAdmin] = useState("null");
+
+  console.log('from app')
 
   // Get contacts from the server
   const getData = async () => {
-    const res = await axios("http://localhost:8000/contacts");
+    const res = await axios("http://localhost:8000/contacts", {
+      headers: {
+        authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+    });
     return res.data.contacts;
   };
   useEffect(() => {
@@ -27,13 +33,18 @@ function App() {
       setData(res);
     };
     getServerData();
+    if (localStorage.token) {
+      let token = localStorage.getItem("token");
+      const user_info = JSON.parse(atob(token.split(".")[1]));
+      console.log('from useEffect')
+      setAdmin(user_info);
+    }
   }, []);
 
-  
   return (
     <div className="app">
-      <Navbar />
-      <ContactsContext.Provider value={{ data, setData }}>
+      <ContactsContext.Provider value={{ data, setData, admin, setAdmin }}>
+        <Navbar />
         <Routes>
           <Route path="/" element={<Contacts />}></Route>
           <Route path="/login" element={<Login />}></Route>

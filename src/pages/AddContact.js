@@ -5,7 +5,7 @@ import Map from "./Map";
 import { ContactsContext } from "../contexts/ContactsContext";
 
 const AddContact = () => {
-  const { data, setData } = useContext(ContactsContext);
+  const { data, setData, admin } = useContext(ContactsContext);
   const [contact, setContact] = useState({
     name: "",
     email: "",
@@ -20,6 +20,11 @@ const AddContact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (contact.location) {
+      if(admin == 'null'){
+        alert('Please login first');
+        navigate('/login');
+        return;
+      }
       try {
         const res = await axios("http://localhost:8000/contacts", {
           method: "POST",

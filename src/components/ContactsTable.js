@@ -11,7 +11,6 @@ const ContactsTable = ({ data }) => {
     false,
     false,
   ]);
-console.log(data)
   const list = ["Name", "Email", "Number", "Relation Ship", "Location"];
 
   const toggleSearch = (e) => {

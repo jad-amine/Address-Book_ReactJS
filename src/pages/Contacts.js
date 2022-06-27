@@ -4,6 +4,7 @@ import { ContactsContext } from "../contexts/ContactsContext";
 
 const Contacts = () => {
   const {data, setData} = useContext(ContactsContext)
+  console.log(data);
   return (
     <div>
       {data && <ContactsTable data={data} setData={setData}/>}
