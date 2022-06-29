@@ -49,10 +49,16 @@
   margin-right: 30px;
 }
 
-#map{
+#map {
   margin-right: 10px;
   border-radius: 5px;
   background-color: red;
+}
+
+#user-name {
+  color: white;
+  font-size: 23px;
+  text-decoration: underline;
 }
 
 /* Contacts Page */
@@ -97,14 +103,14 @@ table button {
   color: white;
   font-size: 20px;
   border: 0;
-  background-color:rgba(136, 152, 192, 0);
+  background-color: rgba(136, 152, 192, 0);
 }
 
-table input{
+table input {
   padding-left: 10px;
 }
 
-#relation{
+#relation {
   width: 100px;
   height: 30px;
   font-size: 17px;
@@ -121,16 +127,16 @@ svg:hover {
 
 /* Add Contact Page */
 
-.add-contact{
+.add-contact {
   margin: 50px;
 }
 
-.add-contact h1{
+.add-contact h1 {
   margin: 40px;
   color: rgb(47, 106, 255);
 }
 
-.add-contact form{
+.add-contact form {
   font-size: 20px;
   margin: 40px;
   color: rgb(47, 106, 255);
@@ -144,13 +150,18 @@ svg:hover {
   background-color: #eeeeee;
 }
 
-.add-contact input{
+.add-contact input {
   width: 250px;
   padding-left: 10px;
   height: 25px;
 }
 
-#last-input{
+#plz-login {
+  padding: 100px;
+  color: rgb(47, 106, 255);
+}
+
+#last-input {
   cursor: pointer;
   width: 150px;
   margin: 0 auto;
@@ -163,31 +174,39 @@ svg:hover {
   font-size: 18px;
 }
 
-#last-input:hover{
+#last-input:hover {
   background-color: rgb(34, 92, 240);
 }
 
-.add-contact select{
+.add-contact select {
   text-align: center;
   width: 100px;
 }
 
 /* Login */
-.login{
+.login {
   margin: 70px auto;
   width: 400px;
   padding: 20px;
   border-radius: 20px;
   background-color: #cecece;
-  
 }
 
-.login h1{
+#logout {
+  cursor: pointer;
+  padding: 7px;
+  width: 80px;
+  color: rgb(47, 106, 255);
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.login h1 {
   text-align: center;
   color: rgb(47, 106, 255);
 }
 
-.login form{
+.login form {
   display: flex;
   flex-direction: column;
   gap: 15px;
@@ -196,14 +215,14 @@ svg:hover {
   font-size: 25px;
 }
 
-.login input{
+.login input {
   width: 250px;
   height: 30px;
   padding-left: 10px;
   font-size: 18px;
 }
 
-.login input:last-of-type{
+.login input:last-of-type {
   background-color: rgb(47, 106, 255);
   margin: auto;
   border: 0;
@@ -214,7 +233,7 @@ svg:hover {
   height: 40px;
 }
 
-.login input:last-of-type:hover{
+.login input:last-of-type:hover {
   background-color: rgb(18, 76, 222);
   cursor: pointer;
 }
@@ -226,7 +245,7 @@ svg:hover {
   height: 100vh;
 }
 
-.active{
+.active {
   background-color: rgba(240, 240, 240, 0.3);
   border: 20px;
   padding: 30px;

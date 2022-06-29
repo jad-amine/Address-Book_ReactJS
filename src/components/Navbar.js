@@ -11,7 +11,7 @@ const Navbar = () => {
   return (
     <div className="navbar">
       <img src={logo} alt="" />
-      {admin && admin.name}
+      {admin.name ? <h3 id="user-name">Welcome {admin.name}</h3> : <h3></h3>}
       <ul>
         <li>
           <NavLink to="/">
@@ -28,6 +28,7 @@ const Navbar = () => {
         <li>
           {admin !== "null" ? (
             <button
+              id="logout"
               onClick={() => {
                 localStorage.clear();
                 setAdmin("null");
